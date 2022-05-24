@@ -93,7 +93,7 @@ def pregunta_03():
                         OneHotEncoder(),
                         make_column_selector(dtype_include=object),
                     ),
-                    remainder="passthrough",
+                    remainder='passthrough',
                 ),
             ),
             # Paso 2: Construya un selector de características que seleccione las K
@@ -104,19 +104,19 @@ def pregunta_03():
             ),
             # Paso 3: Construya un modelo de regresión lineal.
             (
-                "regre_L",
+                "LR",
                 LinearRegression(),
             ),
         ],
     )
 
     # Cargua de las variables.
-    X_train, X_test, y_train, y_test= pregunta_02()
+    X_train, X_test, y_train, y_test = pregunta_02()
 
     # Defina un diccionario de parámetros para el GridSearchCV. Se deben
     # considerar valores desde 1 hasta 11 regresores para el modelo
     param_grid = {
-        "selectKbest_k": (1,11),
+        "selectKBest__k": (1, 11),
     }
 
     # Defina una instancia de GridSearchCV con el pipeline y el diccionario de
@@ -131,6 +131,7 @@ def pregunta_03():
         return_train_score=True,
     )
 
+    
     # Búsque la mejor combinación de regresores
     gridSearchCV.fit(X_train, y_train)
 
@@ -140,12 +141,12 @@ def pregunta_03():
 
 def pregunta_04():
     """
-    Evaluación del modelo
+     Evaluación del modelo
     -------------------------------------------------------------------------------------
     """
 
     # Importe mean_squared_error
-    from sklearn.metrics import mean_squared_error
+    #from sklearn.metrics import mean_squared_error
 
     # Obtenga el pipeline optimo de la pregunta 3.
     gridSearchCV = pregunta_03()
