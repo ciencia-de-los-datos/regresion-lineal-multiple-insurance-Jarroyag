@@ -141,12 +141,12 @@ def pregunta_03():
 
 def pregunta_04():
     """
-     Evaluación del modelo
+    Evaluación del modelo
     -------------------------------------------------------------------------------------
     """
 
     # Importe mean_squared_error
-    #from sklearn.metrics import mean_squared_error
+    from sklearn.metrics import mean_squared_error
 
     # Obtenga el pipeline optimo de la pregunta 3.
     gridSearchCV = pregunta_03()
